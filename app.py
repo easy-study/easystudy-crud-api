@@ -32,7 +32,7 @@ def criar():
 def atualizar(id):
     query = {"_id": ObjectId(id)}
     valores = {"$set": request.json}
-
+   
     db_cursos.update_one(query, valores)
     return f'Curso "{id}" atualizado com sucesso'
 
