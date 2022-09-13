@@ -1,15 +1,16 @@
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 from pymongo import MongoClient
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 import os
 
-
 app = Flask(__name__)
+cors = CORS(app)
 
 client = MongoClient(os.environ.get('MONGODB_URI'))
-db = client.test
+db = client.db
 db_cursos = db.cursos
 
 
